@@ -1,37 +1,28 @@
 # verdi scan app
 ## Для идентификации через Verdi
 
-Для идентфикации нужен сдк файл:
-`myverdi-auth-release.aar`
-
-Переместим СДК в папку `libs`
+Для идентфикации нужен сдк:
 
 Добавим его к приложению:
-```gradle
-    implementation files('libs/myverdi-auth-release.aar')
+```groovy
+    implementation 'com.github.myfunnylove:myverdisdk:1.0.3'
 ```
 
 Дополнительные настройки:
 
 settings.gradle
-```gradle
+```groovy
+    maven { url 'https://jitpack.io' }
     maven {
             url "https://maven.regulaforensics.com/RegulaDocumentReader"
-          }
-
-```
-build.gradle (App)
-```gradle
- implementation ('com.regula.documentreader:api:6.4.7224@aar'){
-        transitive = true
     }
 
-  implementation 'com.regula.documentreader.core:fullrfid:6.4.7188@aar'
 ```
+
 
 AndroidManifest.xml
 ```xml
-<uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -59,17 +50,25 @@ class App : Application() {
         MyVerdi.Builder(
             mContext = this,
             appId = "BHHZ1Lk8MOiVSyug", // client App ID тестовый "BHHZ1Lk8MOiVSyug"
-            appHashIdForSmsAutoFill = "2BFC3U+OIBJ", // hash code for autofill otp
+            appHashIdForSmsAutoFill = "2BFC3U+OIBJ", // hash code для автозаполнение СМС
 
-            styleRes = R.style.Theme_SampleApp, // apptheme
+            styleRes = R.style.Theme_SampleApp, // Тема приложении
             )
-            .setDrawableLogo(R.drawable.flash) // some logo
-            .setPrimaryColor(Color.parseColor("#FFBB86FC")) // optional primaryColor
+            .setDrawableLogo(R.drawable.flash) // Логотир
+            .setPrimaryColor(Color.parseColor("#FFBB86FC")) // primaryColor
             .build()
     }
 }
 ```
 
+
+
+### для автопостановлении ОТП код:
+```kotlin
+val smsCode = //полученный смс код
+MyVerdi.get().getOtpListener()?.invoke(Otp(smsCode ?: ""))
+
+```
 
 ### Для регистрации через MyVerdi:
 
@@ -100,9 +99,3 @@ MyVerdi.get()
 ```
 
 
-### для автопостановлении ОТП код:
-```kotlin
-val smsCode = //полученный смс код
-MyVerdi.get().getOtpListener()?.invoke(Otp(smsCode ?: ""))
-
-```
