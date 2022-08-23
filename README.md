@@ -3,12 +3,12 @@
 
 Для идентфикации нужен сдк:
 
-Добавим его к приложению:
+Для полной версии с Regula:
 ```groovy
     implementation 'com.github.myfunnylove:myverdisdk:1.0.3'
 ```
 
-Дополнительные настройки:
+Дополнительные настройки для полной версии с Regula:
 
 settings.gradle
 ```groovy
@@ -17,6 +17,10 @@ settings.gradle
             url "https://maven.regulaforensics.com/RegulaDocumentReader"
     }
 
+```
+Для Light версии без Regula:
+```groovy
+	implementation 'com.github.myfunnylove:myverdisdk:1.0.0-light'
 ```
 
 
