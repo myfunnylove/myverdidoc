@@ -54,7 +54,7 @@ class App : Application() {
 
             styleRes = R.style.Theme_SampleApp, // Тема приложении
             )
-            .setDrawableLogo(R.drawable.flash) // Логотир
+            .setDrawableLogo(R.drawable.flash) // Логотип
             .setPrimaryColor(Color.parseColor("#FFBB86FC")) // primaryColor
             .build()
     }
