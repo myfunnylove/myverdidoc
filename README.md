@@ -22,7 +22,14 @@ settings.gradle
 ```groovy
 	implementation 'com.github.myfunnylove:myverdisdk:1.0.0-light'
 ```
+Дополнительные настройки для light версии без Regula:
 
+settings.gradle
+```groovy
+    maven { url 'https://jitpack.io' }
+
+
+```
 
 AndroidManifest.xml
 ```xml
