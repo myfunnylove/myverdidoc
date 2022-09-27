@@ -50,8 +50,8 @@ AndroidManifest.xml
             android:screenOrientation="portrait"
             android:exported="false"/>
 ```
-
-## Пример использование СДК сперва нужно инициализация СДК:
+## Пример использование СДК:
+### 1. Нужно инициализация СДК:
 ```kotlin
 class App : Application() {
 
@@ -76,8 +76,8 @@ class App : Application() {
 
 
 
-
-### Для регистрации через MyVerdi:
+### 2. Соответствующие экраны
+#### Для регистрации через MyVerdi:
 
 ```kotlin
 MyVerdi.get()
@@ -90,7 +90,7 @@ MyVerdi.get()
                     })
 ```
 
-### Для верификации через MyVerdi:
+#### Для верификации через MyVerdi:
 
 ```kotlin
 MyVerdi.get()
