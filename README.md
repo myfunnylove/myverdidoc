@@ -5,7 +5,8 @@
 
 Для полной версии с Regula:
 ```groovy
-    implementation 'com.github.myfunnylove:myverdisdk:1.0.3'
+   implementation 'com.github.myfunnylove:myverdisdk:1.0.7'
+
 ```
 
 Дополнительные настройки для полной версии с Regula:
