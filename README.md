@@ -75,12 +75,7 @@ class App : Application() {
 
 
 
-### для автопостановлении ОТП код:
-```kotlin
-val smsCode = //полученный смс код
-MyVerdi.get().getOtpListener()?.invoke(Otp(smsCode ?: ""))
 
-```
 
 ### Для регистрации через MyVerdi:
 
@@ -110,4 +105,9 @@ MyVerdi.get()
                         })
 ```
 
+### для автопостановлении ОТП код (необязательно):
+```kotlin
+val smsCode = //полученный смс код
+MyVerdi.get().getOtpListener()?.invoke(Otp(smsCode ?: ""))
 
+```
